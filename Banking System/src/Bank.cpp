@@ -21,3 +21,8 @@ double Banking::Bank::getBalance() const
 {
 	return this->currentAmount;
 }
+
+bool Banking::Bank::hasFundsToWithdraw(double cash) const
+{
+	return this->currentAmount >= cash;
+}

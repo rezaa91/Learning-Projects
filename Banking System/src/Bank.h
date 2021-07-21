@@ -9,6 +9,7 @@ namespace Banking
 		double getBalance() const;
 		void withdraw(double cash);
 		void deposit(double cash);
+		bool hasFundsToWithdraw(double cash) const;
 	private:
 		double currentAmount;
 	};
