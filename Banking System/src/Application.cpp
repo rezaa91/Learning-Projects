@@ -1,14 +1,12 @@
 #include "Application.h"
 
 #include <iostream>
-#include <string>
-#include <iomanip>
-#include <sstream>
+#include <iomanip> // for setprecision
+#include <sstream> // for std::stream
 
 Banking::Application::Application()
+	:account(Bank(100)),display(Display())
 {
-	this->account = nullptr;
-	this->display = nullptr;
 }
 
 void Banking::Application::init()
@@ -23,14 +21,13 @@ void Banking::Application::init()
 		"Exit"
 	};
 
-	this->display = new Display(options);
-	this->account = new Bank(100);
+	this->display.setOptions(options);
 
 	unsigned int userOption = -1;
 	while (userOption != 4)
 	{
-		this->display->print();
-		userOption = this->display->getOption();
+		this->display.print();
+		userOption = this->display.getOption();
 		system("cls");
 		this->processInput(userOption);
 		std::cout << std::endl;
@@ -39,6 +36,7 @@ void Banking::Application::init()
 	std::cout << "See you soon." << std::endl;
 }
 
+// TODO extract into multiple functions
 void Banking::Application::processInput(unsigned int option)
 {
 	std::string output;
@@ -46,7 +44,11 @@ void Banking::Application::processInput(unsigned int option)
 	switch (option)
 	{
 	case 1:
-		return this->display->output(std::to_string(this->account->getBalance()));
+	{
+		std::stringstream stream;
+		stream << "Balance: " << std::fixed << std::setprecision(2) << this->account.getBalance();
+		return this->display.output(stream.str());
+	}
 	case 2:
 	{
 		std::cout << "How much would you like to deposit?" << std::endl;
@@ -58,12 +60,12 @@ void Banking::Application::processInput(unsigned int option)
 			LOG("Deposit validation failed!");
 			std::cin.clear(); // clears the error flag
 			std::cin.ignore(1000, '\n'); // clear the buffer on the current line (up to 1000 chars)
-			return this->display->output("Invalid input received!");
+			return this->display.output("Invalid input received!");
 		}
-		this->account->deposit(depositAmount);
+		this->account.deposit(depositAmount);
 		std::stringstream stream;
 		stream << "Deposited " << std::fixed << std::setprecision(2) << depositAmount;
-		return this->display->output(stream.str());
+		return this->display.output(stream.str());
 	}
 	case 3:
 	{
@@ -76,28 +78,22 @@ void Banking::Application::processInput(unsigned int option)
 			LOG("Withdraw validation failed!");
 			std::cin.clear(); // clears the error flag
 			std::cin.ignore(1000, '\n'); // clear the buffer on the current line (up to 1000 chars)
-			return this->display->output("Invalid input received!");
+			return this->display.output("Invalid input received!");
 		}
 		std::numeric_limits<std::streamsize>::max(); // clear the buffer
 
-		if (this->account->hasFundsToWithdraw(withdrawAmount))
+		if (this->account.hasFundsToWithdraw(withdrawAmount))
 		{
-			this->account->withdraw(withdrawAmount);
+			this->account.withdraw(withdrawAmount);
 			std::stringstream stream;
 			stream << "Withdrawn " << std::fixed << std::setprecision(2) << withdrawAmount;
-			return this->display->output(stream.str());
+			return this->display.output(stream.str());
 		}
 		else {
-			return this->display->output("Not enough funds!");
+			return this->display.output("Not enough funds!");
 		}
-
 	}
+	default:
+		return this->display.output("Invalid option!");
 	}
-}
-
-Banking::Application::~Application()
-{
-	delete this->display;
-	delete this->account;
-	LOG("Application cleaned up.");
 }

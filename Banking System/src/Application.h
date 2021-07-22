@@ -16,10 +16,9 @@ namespace Banking
 	public:
 		Application();
 		void init();
-		~Application();
 	private:
 		void processInput(unsigned int option);
-		Display* display;
-		Bank* account;
+		Display display;
+		Bank account;
 	};
 }
