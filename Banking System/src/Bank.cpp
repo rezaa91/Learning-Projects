@@ -6,7 +6,7 @@ Banking::Bank::Bank(double currentAmount)
 
 void Banking::Bank::withdraw(double cashToWithdraw)
 {
-	if (cashToWithdraw <= this->currentAmount)
+	if (this->hasFundsToWithdraw(cashToWithdraw))
 	{
 		this->currentAmount -= cashToWithdraw;
 	}

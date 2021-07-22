@@ -1,8 +1,9 @@
 #include "Display.h"
 
-Banking::Display::Display(const options_t& options)
-	:options(options)
-{}
+void Banking::Display::setOptions(const options_t& options)
+{
+	this->options = options;
+}
 
 void Banking::Display::print() const
 {
@@ -13,11 +14,19 @@ void Banking::Display::print() const
 	}
 }
 
-unsigned int Banking::Display::getOption() const
+int Banking::Display::getOption() const
 {
-	char optionSelected;
+	int optionSelected;
 	std::cin >> optionSelected;
-	return optionSelected - '0';
+
+	if (std::cin.fail())
+	{
+		std::cin.clear();
+		std::cin.ignore(1000, '\n');
+		return -1;
+	}
+
+	return optionSelected;
 }
 
 void Banking::Display::output(const std::string& output) const
