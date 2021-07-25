@@ -17,3 +17,5 @@ The main aims of this project is for me to learn the C++ language and its featur
 * maths <<< matrix library?
 * Stop watch with pause, continue and reset functionality
 * Unit testing
+* Operator overloading
+* Template / generics
