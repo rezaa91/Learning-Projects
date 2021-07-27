@@ -10,12 +10,12 @@ The main aims of this project is for me to learn the C++ language and its featur
 * matrix library
 * Operator overloading
 * Unit testing
+* Exception handling
+* File manipulation
 
 # Areas to still cover:
-* File manipulation
 * Todo list - with options to add, remove, update, view in different sorted structures
 * XML extraction
-* Creating a dll and using in another project
 * Array manipulation - mapping, filtering, reducing, sorting, finding...
 * Stop watch with pause, continue and reset functionality
 * Template / generics
