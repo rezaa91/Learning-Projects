@@ -14,9 +14,10 @@ The main aims of this project is for me to learn the C++ language and its featur
 * File manipulation
 
 # Areas to still cover:
-* Todo list - with options to add, remove, update, view in different sorted structures
+* Todo list - with options to add, remove, update, view in different sorted structures - std::sort
 * XML extraction
 * Array manipulation - mapping, filtering, reducing, sorting, finding...
-* Stop watch with pause, continue and reset functionality
+* Stop watch with pause, continue and reset functionality - chrono library
 * Template / generics
+* static and dynamic casting
 * C++ new features - lambda, std::optional, smart pointers, std::move, std::filesystem, structured bindings, std::async (https://github.com/AnthonyCalandra/modern-cpp-features)

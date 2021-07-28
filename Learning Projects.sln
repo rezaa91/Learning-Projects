@@ -16,9 +16,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Matrix", "Matrix\Matrix.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MatrixApp", "MatrixApp\MatrixApp.vcxproj", "{EA1E19E0-7B12-49CC-841A-7CA97C8F71CF}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Matrix_Tests", "Matrix_Tests\Matrix_Tests.vcxproj", "{35A5FB7B-4399-4E19-8316-1A1CB5836B66}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cli", "cli\cli.vcxproj", "{F8BD5CE1-AE39-47D3-A786-FF16EA657CE2}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "File_Lib", "cli\cli.vcxproj", "{F8BD5CE1-AE39-47D3-A786-FF16EA657CE2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,14 +58,6 @@ Global
 		{EA1E19E0-7B12-49CC-841A-7CA97C8F71CF}.Release|x64.Build.0 = Release|x64
 		{EA1E19E0-7B12-49CC-841A-7CA97C8F71CF}.Release|x86.ActiveCfg = Release|Win32
 		{EA1E19E0-7B12-49CC-841A-7CA97C8F71CF}.Release|x86.Build.0 = Release|Win32
-		{35A5FB7B-4399-4E19-8316-1A1CB5836B66}.Debug|x64.ActiveCfg = Debug|x64
-		{35A5FB7B-4399-4E19-8316-1A1CB5836B66}.Debug|x64.Build.0 = Debug|x64
-		{35A5FB7B-4399-4E19-8316-1A1CB5836B66}.Debug|x86.ActiveCfg = Debug|Win32
-		{35A5FB7B-4399-4E19-8316-1A1CB5836B66}.Debug|x86.Build.0 = Debug|Win32
-		{35A5FB7B-4399-4E19-8316-1A1CB5836B66}.Release|x64.ActiveCfg = Release|x64
-		{35A5FB7B-4399-4E19-8316-1A1CB5836B66}.Release|x64.Build.0 = Release|x64
-		{35A5FB7B-4399-4E19-8316-1A1CB5836B66}.Release|x86.ActiveCfg = Release|Win32
-		{35A5FB7B-4399-4E19-8316-1A1CB5836B66}.Release|x86.Build.0 = Release|Win32
 		{F8BD5CE1-AE39-47D3-A786-FF16EA657CE2}.Debug|x64.ActiveCfg = Debug|x64
 		{F8BD5CE1-AE39-47D3-A786-FF16EA657CE2}.Debug|x64.Build.0 = Debug|x64
 		{F8BD5CE1-AE39-47D3-A786-FF16EA657CE2}.Debug|x86.ActiveCfg = Debug|Win32

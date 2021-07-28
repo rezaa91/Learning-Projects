@@ -149,11 +149,6 @@
   <ItemGroup>
     <ClCompile Include="src\Application.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Matrix\Matrix.vcxproj">
-      <Project>{e4c7fb36-fd40-4b81-93a0-dc6fce7b124e}</Project>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
