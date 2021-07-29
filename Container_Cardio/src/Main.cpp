@@ -1,8 +1,7 @@
 #include <iostream>
-#include <algorithm>
-
-// CONTAINERS
+#include <string>
 #include <vector>
+#include <algorithm>
 
 template<typename T>
 void printItem(T item)
@@ -10,11 +9,110 @@ void printItem(T item)
 	std::cout << item << std::endl;
 }
 
+class Item;
+
+using items_t = std::vector<Item>;
+
+class Item
+{
+public:
+	Item(const std::string& name)
+		:name(name), complete(false) {}
+
+	void markAsComplete()
+	{
+		this->complete = true;
+	}
+
+	bool isComplete() const
+	{
+		return this->complete;
+	}
+
+	const std::string getName() const
+	{
+		return this->name;
+	}
+
+	void printInfo() const
+	{
+		std::cout << "\"" << this->name << "\" is " << (this->complete ? " " : "not ") << "complete" << std::endl;
+	}
+
+	bool operator< (const Item& other) const
+	{
+		return this->name < other.name;
+	}
+
+	bool operator> (const Item& other) const
+	{
+		return this->name > other.name;
+	}
+
+	bool operator==(const Item& other) const
+	{
+		return this->isComplete() == other.isComplete();
+	}
+
+private:
+	std::string name;
+	bool complete;
+};
+
+void printItems(const items_t& items)
+{
+	std::cout << "========================================\n";
+	std::for_each(items.begin(), items.end(), [](Item item) {
+		item.printInfo();
+		});
+	std::cout << "========================================\n";
+};
+
 int main()
 {
-	/*
-	* VECTORS
-	*/
+
+	// VECTORS
+	Item itemOne("A item one");
+	Item itemTwo("B item two");
+	Item itemThree("C item three");
+	Item itemFour("D item four");
+	Item itemFive("E item five");
+
+	itemTwo.markAsComplete();
+	itemFive.markAsComplete();
+
+	items_t items;
+	items.push_back(itemTwo);
+	items.push_back(itemOne);
+	items.push_back(itemFive);
+	items.push_back(itemThree);
+	items.push_back(itemFour);
+
+	printItems(items);
+
+	// sort alphabetically - asc
+	std::sort(items.begin(), items.end());
+	printItems(items);
+
+	// show incomplete
+	items.erase(std::remove_if(items.begin(), items.end(), [](Item item) {
+		return item.isComplete();
+		}), items.end());
+	printItems(items);
+
+	bool allIncomplete = std::all_of(items.begin(), items.end(), [](Item item) {
+		return !item.isComplete();
+		});
+	std::cout << 1 << " == " << allIncomplete << std::endl;
+
+	bool someComplete = std::any_of(items.begin(), items.end(), [](Item item) {
+		return item.isComplete();
+		});
+	std::cout << 0 << " == " << someComplete << std::endl;
+
+
+
+	// SCALAR VECTORS
 	std::vector<int> v_Cont = { 8, 6, 2, 1, 3, 7, 10, 4, 0 };
 
 	// sort desc
@@ -67,5 +165,7 @@ int main()
 	std::cout << "v_Int " << (some ? "includes " : "does not include ") << 8 << std::endl;
 	std::cout << "================================================\n";
 
+
 	std::cin.get();
 }
+
