@@ -12,11 +12,13 @@ The main aims of this project is for me to learn the C++ language and its featur
 * Unit testing
 * Exception handling
 * File manipulation
+* Array manipulation - mapping, filtering, reducing, sorting, finding...
+* Template
+* lambdas
+* Functor
+* static_assert
 
 # Areas to still cover:
-* Array manipulation - mapping, filtering, reducing, sorting, finding...
+* C++ new features - std::optional, smart pointers, std::move, structured bindings, std::async (https://github.com/AnthonyCalandra/modern-cpp-features)
 * Stop watch with pause, continue and reset functionality - chrono library
-* Template / generics
 * static and dynamic casting
-* C++ new features - lambda, std::optional, smart pointers, std::move, std::filesystem, structured bindings, std::async (https://github.com/AnthonyCalandra/modern-cpp-features)
-* XML extraction
